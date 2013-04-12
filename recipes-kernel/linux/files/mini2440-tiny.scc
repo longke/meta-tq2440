@@ -1,0 +1,8 @@
+define KMACHINE mini2440
+define KTYPE tiny
+define KARCH arm
+
+include ktypes/tiny/tiny.scc
+branch mini2440
+
+include mini2440.scc

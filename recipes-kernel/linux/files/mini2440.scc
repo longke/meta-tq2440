@@ -1,0 +1,5 @@
+kconf hardware mini2440.cfg
+include features/usb-net/usb-net.scc
+
+kconf hardware mini2440-user-config.cfg
+include mini2440-user-patches.scc
