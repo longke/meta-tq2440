@@ -11,6 +11,7 @@ SRC_URI += "file://mini2440-standard.scc \
             file://mini2440-user-config.cfg \
             file://mini2440-user-patches.scc \
             file://mini2440-user-features.scc \
+            file://sound.patch \
            "
 
 # uncomment and replace these SRCREVs with the real commit ids once you've had

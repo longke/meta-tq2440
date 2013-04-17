@@ -1,0 +1,21 @@
+diff --git a/sound/soc/samsung/s3c24xx-i2s.c b/sound/soc/samsung/s3c24xx-i2s.c
+index ee10e87..7dafeee 100644
+--- a/sound/soc/samsung/s3c24xx-i2s.c
++++ b/sound/soc/samsung/s3c24xx-i2s.c
+@@ -28,6 +28,7 @@
+ 
+ #include "dma.h"
+ #include "s3c24xx-i2s.h"
++#include "s3c-i2s-v2.h"
+ 
+ static struct s3c2410_dma_client s3c24xx_dma_client_out = {
+ 	.name = "I2S PCM Stereo out"
+@@ -469,7 +470,7 @@ static int s3c24xx_iis_dev_probe(struct platform_device *pdev)
+ {
+ 	int ret = 0;
+ 
+-	ret = s3c_i2sv2_register_dai(&pdev->dev, -1, &s3c2412_i2s_dai);
++	ret = snd_soc_register_dai(&pdev->dev, &s3c24xx_i2s_dai);
+ 	if (ret) {
+ 		pr_err("failed to register the dai\n");
+ 		return ret;
