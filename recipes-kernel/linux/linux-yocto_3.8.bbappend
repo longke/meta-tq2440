@@ -1,8 +1,8 @@
-FILESEXTRAPATHS_prepend_mini2440 := "${THISDIR}/files:"
+FILESEXTRAPATHS_prepend_tq2440 := "${THISDIR}/files:"
 
 PR := "${PR}.1"
 
-COMPATIBLE_MACHINE_mini2440 = "mini2440"
+COMPATIBLE_MACHINE_tq2440 = "tq2440"
 
 
 

@@ -1,4 +1,4 @@
-This README file contains information on building the meta-mini2440
+This README file contains information on building the meta-tq2440
 BSP layer, and booting the images contained in the /binary directory.
 Please see the corresponding sections below for details.
 
@@ -26,19 +26,16 @@ Patches
 Please submit any patches against this BSP to the Yocto mailing list
 (yocto@yoctoproject.org) and cc: the maintainer:
 
-Maintainer: Anatolii Sakhnik <sakhnik@gmail.com>
-
-Please see the meta-mini2440/MAINTAINERS file for more details.
-
+Maintainer: longke <xizhenyang19897@gmail.com>
 
 Table of Contents
 =================
 
-  I. Building the meta-mini2440 BSP layer
+  I. Building the meta-tq2440 BSP layer
  II. Booting the images in /binary
 
 
-I. Building the meta-mini2440 BSP layer
+I. Building the meta-tq2440 BSP layer
 ========================================
 
 --- replace with specific instructions for your layer ---
@@ -49,23 +46,24 @@ Package (BSP) Downloads' page of the Yocto Project website.
 
 Having done that, and assuming you extracted the BSP tarball contents
 at the top-level of your yocto build tree, you can build a
-mini2440 image by adding the location of the meta-mini2440
+tq2440 image by adding the location of the meta-tq2440
 layer to bblayers.conf, along with any other layers needed (to access
 common metadata shared between BSPs) e.g.:
 
-  yocto/meta-xxxx \
-  yocto/meta-xxxx/meta-mini2440 \
+${BSPDIR}/sources/meta-tq2440 \
+${BSPDIR}/sources/meta-tq2440-demo \
 
-To enable the mini2440 layer, add the mini2440 MACHINE to local.conf:
 
-  MACHINE ?= "mini2440"
+To enable the tq2440 layer, add the tq2440 MACHINE to local.conf as I do in meta-tq2440-demo:
 
-You should then be able to build a mini2440 image as such:
+  MACHINE ?= "tq2440"
+
+You should then be able to build a tq2440 image as such:
 
   $ source oe-init-build-env
-  $ bitbake core-image-sato
+  $ bitbake tq2440-test or something
 
-NOTE: if the 'mini2440' machine includes the emgd-driver-bin
+NOTE: if the 'tq2440' machine includes the emgd-driver-bin
 package (i.e. if the emgd version of the xserver is being used), it
 has a proprietary license that must be whitelisted by adding the
 string "license_emgd-driver-bin_1.16" to the LICENSE_FLAGS_WHITELIST
@@ -100,7 +98,7 @@ Under Linux, insert a USB flash drive.  Assuming the USB flash drive
 takes device /dev/sdf, use dd to copy the live image to it.  For
 example:
 
-# dd if=core-image-sato-mini2440-20101207053738.hddimg of=/dev/sdf
+# dd if=tq2440-test.....img of=/dev/sdf
 # sync
 # eject /dev/sdf
 
